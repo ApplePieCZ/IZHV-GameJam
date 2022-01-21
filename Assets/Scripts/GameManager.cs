@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private bool celebration100 = true;
     
     public GameObject startText;
-    
+
     public GameObject lossText;
     
     public GameObject scoreText;

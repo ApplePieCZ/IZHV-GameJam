@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
 
     Vector2 _movement;
+
+    public GameObject healthText;
 
     public float health = 20f;
 
@@ -34,6 +37,10 @@ public class Player : MonoBehaviour
         {
             isDead = true;
         }
+        else
+        {
+            GetChildNamed(healthText, "Value").GetComponent<Text>().text = $"{(int) (health)}";
+        }
     }
 
     private void FixedUpdate()
@@ -42,22 +49,22 @@ public class Player : MonoBehaviour
         { return; }
         
         // Movement
-        if (rb.position.x <= -8.25f && _movement.x == -1f)
+        if (rb.position.x <= -8.4f && _movement.x == -1f)
         {
             _movement.x = 0;
         }
 
-        if (rb.position.x >= 4.85f && _movement.x == 1f)
+        if (rb.position.x >= 5.0f && _movement.x == 1f)
         {
             _movement.x = 0;
         }
         
-        if (rb.position.y <= -4.75f && _movement.y == -1f)
+        if (rb.position.y <= -4.4f && _movement.y == -1f)
         {
             _movement.y = 0;
         }
 
-        if (rb.position.y >= 4.75f && _movement.y == 1f)
+        if (rb.position.y >= 4.4f && _movement.y == 1f)
         {
             _movement.y = 0;
         }
@@ -67,5 +74,11 @@ public class Player : MonoBehaviour
     private void KillPlayer()
     {
         
+    }
+    
+    private static GameObject GetChildNamed(GameObject go, string name) 
+    {
+        var childTransform = go.transform.Find(name);
+        return childTransform == null ? null : childTransform.gameObject;
     }
 }
