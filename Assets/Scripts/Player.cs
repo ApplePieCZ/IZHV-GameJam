@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
             _movement.x = 0;
         }
 
-        if (rb.position.x >= 5.0f && _movement.x == 1f)
+        if (rb.position.x >= 4.2f && _movement.x == 1f)
         {
             _movement.x = 0;
         }

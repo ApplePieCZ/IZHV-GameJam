@@ -12,6 +12,8 @@ public class ShopManager : MonoBehaviour
     public float coins;
 
     public Text coinsTxt;
+
+    public GameObject player;
     public void Start()
     {
         coinsTxt.text = coins.ToString(CultureInfo.InvariantCulture);
@@ -45,12 +47,15 @@ public class ShopManager : MonoBehaviour
         switch (itemID)
         {
             case 1:
+                player.GetComponent<Player>().speed += 0.5f;
                 ShopItems[2, 1] += 25;
                 break;
             case 2:
+                player.GetComponent<Player>().health += 10f;
                 ShopItems[2, 2] += 50;
                 break;
             case 3:
+                player.GetComponent<Player>().damage += 1f;
                 ShopItems[2, 3] += 100;
                 break;
         }
