@@ -13,7 +13,7 @@ public class EnemyShooting1 : MonoBehaviour
     
     public float shootTime;
 
-    private float shootInterval = 0.25f;
+    private float shootInterval = 0.5f;
     
     // Update is called once per frame
     void Update()

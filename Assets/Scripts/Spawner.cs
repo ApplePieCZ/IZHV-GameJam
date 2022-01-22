@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
 
     public GameObject enemyPrefab;
 
-    public Transform spawner;
+    public Transform[] spawner;
 
     public float spawnTime = 1.0f;
 
@@ -20,8 +20,11 @@ public class Spawner : MonoBehaviour
         elapsedTime += Time.deltaTime;
         if (!(elapsedTime >= spawnTime)) return;
 
-        var enemyL = Instantiate(enemyPrefab, spawner.position, spawner.rotation);
+        var enemyL = Instantiate(enemyPrefab, spawner[0].position, spawner[0].rotation);
         enemyL.GetComponent<EnemyBehavior>().movement = new Vector2(1f, -0.1f);
+        
+        var enemyR = Instantiate(enemyPrefab, spawner[1].position, spawner[1].rotation);
+        enemyR.GetComponent<EnemyBehavior>().movement = new Vector2(-1f, -0.1f);
 
         elapsedTime = 0f;
     }

@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
     
     public GameObject player;
     
-    public GameObject spawner;
-    
+    public GameObject[] spawner;
+
     private bool mGameLost = false;
     
     private static bool sGameStarted = false;
@@ -68,12 +68,13 @@ public class GameManager : MonoBehaviour
             startText.SetActive(false);
             scoreText.SetActive(true);
             lossText.SetActive(false);
-            spawner.GetComponent<Spawner>().spawn = true;
+            
+            StartSpawning();
         }
         else
         { 
             // Don't start spawning until we start.
-            spawner.GetComponent<Spawner>().spawn = false;
+            StopSpawning();
             // Setup the text.
             startText.SetActive(true);
             scoreText.SetActive(false);
@@ -91,12 +92,12 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        spawner.GetComponent<Spawner>().spawn = true;
+        StartSpawning();
     }
     
     public void LooseGame()
     {
-        spawner.GetComponent<Spawner>().spawn = false;
+        StopSpawning();
         
         lossText.SetActive(true);
         
@@ -107,5 +108,17 @@ public class GameManager : MonoBehaviour
     {
         var childTransform = go.transform.Find(name);
         return childTransform == null ? null : childTransform.gameObject;
+    }
+
+    private void StopSpawning()
+    {
+        spawner[0].GetComponent<Spawner>().spawn = false;
+        spawner[1].GetComponent<EnemyPassiveMasterSpawner>().spawn = false;
+    }
+
+    private void StartSpawning()
+    {
+        spawner[0].GetComponent<Spawner>().spawn = true;
+        spawner[1].GetComponent<EnemyPassiveMasterSpawner>().spawn = true;
     }
 }

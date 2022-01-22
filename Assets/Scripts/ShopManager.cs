@@ -8,7 +8,9 @@ using UnityEngine.EventSystems;
 
 public class ShopManager : MonoBehaviour
 {
-    public readonly int[,] ShopItems = new int[4,4];
+    private static readonly int[,] ShopItemsKeep = {{0,0,0,0},{0,1,2,3},{0,25,50,200},{0,1,1,1}};
+    
+    public int[,] ShopItems = new int[4,4];
     
     public float coins;
 
@@ -17,22 +19,10 @@ public class ShopManager : MonoBehaviour
     public GameObject player;
 
     public Button[] button;
-    public void Start()
+    public void Awake()
     {
         coinsTxt.text = coins.ToString(CultureInfo.InvariantCulture);
-        // ID's
-        ShopItems[1, 1] = 1;
-        ShopItems[1, 2] = 2;
-        ShopItems[1, 3] = 3;
-        // Price
-        ShopItems[2, 1] = 25;
-        ShopItems[2, 2] = 50;
-        ShopItems[2, 3] = 200;
-        // Level
-        ShopItems[3, 1] = 1; // 10
-        ShopItems[3, 2] = 1; // 10
-        ShopItems[3, 3] = 1; // 5
-        
+        ShopItems = ShopItemsKeep;
     }
 
     public void Buy()
@@ -55,12 +45,12 @@ public class ShopManager : MonoBehaviour
                 ShopItems[2, 1] += 25;
                 break;
             case 2:
-                player.GetComponent<Player>().shield += 10f;
-                player.GetComponent<Player>().actualShield += 10f;
+                player.GetComponent<Player>().shield += 2f;
+                player.GetComponent<Player>().actualShield += 2f;
                 ShopItems[2, 2] += 50;
                 break;
             case 3:
-                player.GetComponent<Player>().damage += 1;
+                player.GetComponent<Player>().damage += 1f;
                 ShopItems[2, 3] += 100;
                 break;
         }

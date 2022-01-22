@@ -1,35 +1,47 @@
 // Script for player movement and behavior
 // Author: Lukas Marek
 // Date: 22.01.2022
+
+using Unity.VisualScripting;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed;
 
     public Rigidbody2D rb;
 
     public GameObject bullet;
 
-    Vector2 _movement;
+    private Vector2 _movement;
 
     public GameObject shieldText;
 
-    public float actualShield = 20f;
-    
-    public float shield = 20f;
+    public float actualShield;
 
-    public int damage = 1;
+    public float shield;
+
+    public float damage;
 
     public bool isDead = false;
 
     public GameObject shopManager;
+
+    private SpriteRenderer _spriteRenderer;
+
+    public Sprite spriteDead;
+
+    public static float[] playerInfo = {5f, 5f, 1f};
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = playerInfo[0];
+        shield = playerInfo[1];
+        damage = playerInfo[2];
+        actualShield = shield;
     }
 
     // Update is called once per frame
@@ -79,8 +91,12 @@ public class Player : MonoBehaviour
     private void KillPlayer()
     {
         isDead = true;
+        playerInfo[0] = speed;
+        playerInfo[1] = shield;
+        playerInfo[2] = damage;
+        _spriteRenderer = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        _spriteRenderer.sprite = spriteDead;
         GameManager.Instance.LooseGame();
-        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
