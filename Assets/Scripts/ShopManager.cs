@@ -54,7 +54,8 @@ public class ShopManager : MonoBehaviour
                 ShopItems[2, 1] += 25;
                 break;
             case 2:
-                player.GetComponent<Player>().health += 10f;
+                player.GetComponent<Player>().shield += 10f;
+                player.GetComponent<Player>().actualShield += 10f;
                 ShopItems[2, 2] += 50;
                 break;
             case 3:
