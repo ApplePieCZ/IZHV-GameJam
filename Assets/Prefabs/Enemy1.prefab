@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 7213157053072762143}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 14.486, y: 0.461, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4184451119651967644}
@@ -201,10 +201,9 @@ MonoBehaviour:
   firePointField:
   - {fileID: 4184451119651967644}
   - {fileID: 7266136715497667948}
-  bulletPrefab: {fileID: 3394393666193275149, guid: 9f8b46b9cf9f0ac459a38e6079e1a50d, type: 3}
+  bulletPrefab: {fileID: 4437954539193365823, guid: 5fa3ece109de85d418a7656890d5a65d, type: 3}
   bulletForce: 5
   shootTime: 0
-  shootInterval: 0.5
 --- !u!1 &8501304798286421814
 GameObject:
   m_ObjectHideFlags: 0
