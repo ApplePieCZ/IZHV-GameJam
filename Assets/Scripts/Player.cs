@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     public float health = 20f;
 
-    public float damage = 1f;
+    public int damage = 1;
 
     public bool isDead = false;
     

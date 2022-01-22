@@ -14,6 +14,8 @@ public class ShopManager : MonoBehaviour
     public Text coinsTxt;
 
     public GameObject player;
+
+    public Button[] button;
     public void Start()
     {
         coinsTxt.text = coins.ToString(CultureInfo.InvariantCulture);
@@ -26,9 +28,9 @@ public class ShopManager : MonoBehaviour
         ShopItems[2, 2] = 50;
         ShopItems[2, 3] = 200;
         // Level
-        ShopItems[3, 1] = 0;
-        ShopItems[3, 2] = 0;
-        ShopItems[3, 3] = 0;
+        ShopItems[3, 1] = 1; // 10
+        ShopItems[3, 2] = 1; // 10
+        ShopItems[3, 3] = 1; // 5
         
     }
 
@@ -37,8 +39,9 @@ public class ShopManager : MonoBehaviour
         var buttonReference = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>()
             .currentSelectedGameObject;
         var itemID = buttonReference.GetComponent<ButtonInfo>().itemID;
-
+        
         if (!(coins >= ShopItems[2, itemID])) return;
+        
         coins -= ShopItems[2, itemID];
         ShopItems[3, itemID]++;
         coinsTxt.text = coins.ToString(CultureInfo.InvariantCulture);
@@ -55,15 +58,26 @@ public class ShopManager : MonoBehaviour
                 ShopItems[2, 2] += 50;
                 break;
             case 3:
-                player.GetComponent<Player>().damage += 1f;
+                player.GetComponent<Player>().damage += 1;
                 ShopItems[2, 3] += 100;
                 break;
         }
 
     }
     
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (ShopItems[3, 1] == 15)
+        {
+            button[0].interactable = false;
+        }
+        if (ShopItems[3, 2] == 20)
+        {
+            button[1].interactable = false;
+        }
+        if (ShopItems[3, 3] == 5)
+        {
+            button[2].interactable = false;
+        }
     }
 }

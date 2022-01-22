@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public Transform firePoint;
+    public Transform[] firePointField;
 
+    public GameObject player;
+    
     public GameObject bulletPrefab;
 
     public float bulletForce = 20f;
@@ -28,15 +30,44 @@ public class Shooting : MonoBehaviour
         {
             shoot = false;
         }
-        if (shoot && shootTime > shootInterval)
+        if (!shoot || shootTime <= shootInterval)
+        { return; }
+        
+        
+        switch (player.GetComponent<Player>().damage)
         {
-            Shoot();
-            shootTime = 0.0f;
+            case 1:
+                Shoot(firePointField[0]);
+                break;
+            case 2:
+                Shoot(firePointField[1]);
+                Shoot(firePointField[2]);
+                break;
+            case 3:
+                Shoot(firePointField[0]);
+                Shoot(firePointField[1]);
+                Shoot(firePointField[2]);
+                break;
+            case 4:
+                Shoot(firePointField[1]);
+                Shoot(firePointField[2]);
+                Shoot(firePointField[3]);
+                Shoot(firePointField[4]);
+                break;
+            case 5:
+                Shoot(firePointField[0]);
+                Shoot(firePointField[1]);
+                Shoot(firePointField[2]);
+                Shoot(firePointField[3]);
+                Shoot(firePointField[4]);
+                break;
         }
+        shootTime = 0.0f;
     }
-
-    void Shoot()
+    
+    void Shoot(Transform firePoint)
     {
+        FindObjectOfType<AudioManager>().Play("shot");
         var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         var rigidBody = bullet.GetComponent<Rigidbody2D>();
         rigidBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
