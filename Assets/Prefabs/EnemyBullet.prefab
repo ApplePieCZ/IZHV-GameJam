@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6099003907030548539}
   - component: {fileID: 2211607389495548052}
   - component: {fileID: 6427342799467272285}
-  - component: {fileID: 4995838950114434761}
+  - component: {fileID: 4623820336044753332}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -124,7 +124,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.03, y: 0.4541964}
   m_Size: {x: 0.20196855, y: 0.2478096}
   m_Direction: 0
---- !u!114 &4995838950114434761
+--- !u!114 &4623820336044753332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,6 +133,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4437954539193365823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c434c42991e84d4391b5da47d79eed5, type: 3}
+  m_Script: {fileID: 11500000, guid: a80c7e734d538a34d9c8962dcb8529a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
