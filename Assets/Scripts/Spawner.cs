@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
 
     public float spawnTime = 1.0f;
 
-    public float elapsedTime = 0.0f;
+    private float elapsedTime = 0.0f;
     void FixedUpdate()
     {
         if (!spawn) return;

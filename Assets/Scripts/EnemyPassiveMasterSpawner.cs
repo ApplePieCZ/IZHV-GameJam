@@ -17,8 +17,8 @@ public class EnemyPassiveMasterSpawner : MonoBehaviour
     private Vector2 direction;
 
     private int gap = 60;
-    private int gapCounter = 0;
-    public float elapsedTime = 0.0f;
+    private int gapCounter = 0; 
+    private float elapsedTime = 0.0f;
     void FixedUpdate()
     {
         if (!spawn) return;

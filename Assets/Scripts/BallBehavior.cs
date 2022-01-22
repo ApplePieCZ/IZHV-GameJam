@@ -1,14 +1,12 @@
-// Script for bullet collision
-// Author: Lukas Marek
-// Date: 22.01.2022
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BallBehavior : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name is "EnemyBullet(Clone)" or "Coin(Clone)" or "Bullet(Clone)" or "Ball(Clone)") return;
-
         Destroy(gameObject);
     }
 }
