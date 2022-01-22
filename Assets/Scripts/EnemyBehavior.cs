@@ -32,7 +32,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name != "Bullet(Clone)") return;
+        if (other.name is not "Bullet(Clone)" or "Despawner2") return;
         Destroy(gameObject);
         Instantiate(coinPrefab, dropPoint.position, dropPoint.rotation);
     }
