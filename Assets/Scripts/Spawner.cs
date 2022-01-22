@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+  // Script for spawning enemies
+ // Author: Lukas Marek
+// Date: 22.01.2022
 using UnityEngine;
 
 public class Spawner : MonoBehaviour

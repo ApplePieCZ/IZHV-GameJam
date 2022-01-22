@@ -1,7 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
+// Script for coin collision
+// Author: Lukas Marek
+// Date: 22.01.2022
 using UnityEngine;
 
 public class CoinBehavior : MonoBehaviour

@@ -1,5 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+// Script for updating button info
+// Author: Lukas Marek
+// Date: 22.01.2022
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,6 @@ public class ButtonInfo : MonoBehaviour
 
     public GameObject shopManager;
     
-    // Update is called once per frame
     void Update()
     {
         priceText.text = shopManager.GetComponent<ShopManager>().ShopItems[2, itemID].ToString();

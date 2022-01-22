@@ -1,5 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+// Script for shop interface
+// Author: Lukas Marek
+// Date: 22.01.2022
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
