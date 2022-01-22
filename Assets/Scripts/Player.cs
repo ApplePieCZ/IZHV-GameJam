@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     public GameObject bullet;
 
-    Vector2 _movement;
+    private Vector2 _movement;
 
     public GameObject shieldText;
 
@@ -25,6 +25,10 @@ public class Player : MonoBehaviour
     public bool isDead = false;
 
     public GameObject shopManager;
+
+    private SpriteRenderer _spriteRenderer;
+
+    public Sprite spriteDead;
     
     // Start is called before the first frame update
     void Start()
@@ -79,8 +83,9 @@ public class Player : MonoBehaviour
     private void KillPlayer()
     {
         isDead = true;
+        _spriteRenderer = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        _spriteRenderer.sprite = spriteDead;
         GameManager.Instance.LooseGame();
-        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
