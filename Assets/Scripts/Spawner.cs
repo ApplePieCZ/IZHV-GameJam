@@ -19,8 +19,10 @@ public class Spawner : MonoBehaviour
         if (!spawn) return;
         elapsedTime += Time.deltaTime;
         if (!(elapsedTime >= spawnTime)) return;
-        
-        Instantiate(enemyPrefab, spawner.position, spawner.rotation);
+
+        var enemyL = Instantiate(enemyPrefab, spawner.position, spawner.rotation);
+        enemyL.GetComponent<EnemyBehavior>().movement = new Vector2(1f, -0.1f);
+
         elapsedTime = 0f;
     }
 }

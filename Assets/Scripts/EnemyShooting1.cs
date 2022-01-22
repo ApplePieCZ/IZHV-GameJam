@@ -12,15 +12,14 @@ public class EnemyShooting1 : MonoBehaviour
     
     public float shootTime;
 
-    public float shootInterval = 0.5f;
+    private float shootInterval = 0.25f;
     
     // Update is called once per frame
     void Update()
     {
         shootTime += Time.deltaTime;
-        
-        if (shootTime <= shootInterval)
-        { return; }
+
+        if (shootTime <= shootInterval) return;
         
         Shoot(firePointField[0]);
         Shoot(firePointField[1]);
