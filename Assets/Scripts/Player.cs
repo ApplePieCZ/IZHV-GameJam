@@ -1,6 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+// Script for player movement and behavior
+// Author: Lukas Marek
+// Date: 22.01.2022
 using UnityEngine;
 using UnityEngine.UI;
 

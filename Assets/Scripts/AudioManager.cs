@@ -1,5 +1,7 @@
+// Script for audio management
+// Author: Lukas Marek
+// Date: 22.01.2022
 using System;
-using Unity.Audio;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
