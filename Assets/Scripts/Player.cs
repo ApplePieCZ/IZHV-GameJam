@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
 
     Vector2 _movement;
 
-    public GameObject healthText;
+    public GameObject shieldText;
 
-    public float health = 20f;
+    public float actualShield = 20f;
+    
+    public float shield = 20f;
 
     public int damage = 1;
 
@@ -37,14 +39,13 @@ public class Player : MonoBehaviour
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
 
-        if (health <= 0.0f)
+        if (actualShield <= 0.0f)
         {
             KillPlayer();
+            return;
         }
-        else
-        {
-            GetChildNamed(healthText, "Value").GetComponent<Text>().text = $"{(int) (health)}";
-        }
+        GetChildNamed(shieldText, "Value").GetComponent<Text>().text = $"{(int) (actualShield)}";
+        GetChildNamed(shieldText, "WarningText").SetActive(actualShield <= shield / 100 * 30);
     }
 
     private void FixedUpdate()
@@ -89,7 +90,7 @@ public class Player : MonoBehaviour
             shopManager.GetComponent<ShopManager>().coins += 1f;
             return;
         }
-        health -= 1.0f;
+        actualShield -= 1.0f;
     }
     
     private static GameObject GetChildNamed(GameObject go, string name) 

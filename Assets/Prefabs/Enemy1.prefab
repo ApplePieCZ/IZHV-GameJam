@@ -183,7 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.5
   rigidBody: {fileID: 7424913429561740904}
-  movement: {x: 1, y: 0}
+  movement: {x: 1, y: -0.1}
   coinPrefab: {fileID: 8059894597009178747, guid: f02ba9d502116ac43b3f325427a6f54d, type: 3}
   dropPoint: {fileID: 2192853788656650331}
 --- !u!114 &6084221997860731989
@@ -204,7 +204,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3394393666193275149, guid: 9f8b46b9cf9f0ac459a38e6079e1a50d, type: 3}
   bulletForce: 5
   shootTime: 0
-  shootInterval: 0.25
+  shootInterval: 0.5
 --- !u!1 &8501304798286421814
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,11 +259,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8766794880491855282}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: -0.108, y: -0.199, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7962924393011189602}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}

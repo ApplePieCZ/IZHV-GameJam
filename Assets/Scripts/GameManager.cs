@@ -20,8 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject spawner;
     
     private bool mGameLost = false;
-
-   
+    
     private static bool sGameStarted = false;
     public static GameManager Instance
     { get { return sInstance; } }
@@ -69,11 +68,12 @@ public class GameManager : MonoBehaviour
             startText.SetActive(false);
             scoreText.SetActive(true);
             lossText.SetActive(false);
+            spawner.GetComponent<Spawner>().spawn = true;
         }
         else
         { 
             // Don't start spawning until we start.
-            
+            spawner.GetComponent<Spawner>().spawn = false;
             // Setup the text.
             startText.SetActive(true);
             scoreText.SetActive(false);
@@ -84,28 +84,22 @@ public class GameManager : MonoBehaviour
     
     public void StartGame()
     {
-        // Reload the scene as started.
         sGameStarted = true; 
         ResetGame();
     }
     
     public void ResetGame()
     {
-        // Reload the active scene, triggering reset...
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        spawner.GetComponent<Spawner>().spawn = true;
     }
     
     public void LooseGame()
     {
-        // Get the spawner script.
-        //var sp = spawner.GetComponent<Spawner>();
-        // Stop the obstacles.
-        //sp.ModifyObstacleSpeed(0.0f);
-        // Stop spawning.
-        //sp.spawnObstacles = false;
-        // Show the loss text.
+        spawner.GetComponent<Spawner>().spawn = false;
+        
         lossText.SetActive(true);
-        // Loose the game.
+        
         mGameLost = true;
     }
     

@@ -9,7 +9,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public Rigidbody2D rigidBody;
 
-    public Vector2 movement = new Vector2(1f,0f);
+    public Vector2 movement = new Vector2(1f,-1f);
 
     public GameObject coinPrefab;
 
