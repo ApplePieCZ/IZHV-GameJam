@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 8956311383954072619}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.17, y: -4.040164, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7149317463106436486}
@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae558204dfd49064d9bbdcc48cfa940d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
   rigidBody: {fileID: 8956311383954072622}
   movement: {x: 0, y: 0}
   coinPrefab: {fileID: 8059894597009178747, guid: f02ba9d502116ac43b3f325427a6f54d, type: 3}
