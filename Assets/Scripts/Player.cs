@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public GameObject bullet;
+
     Vector2 _movement;
 
     public GameObject healthText;
@@ -19,6 +21,8 @@ public class Player : MonoBehaviour
     public int damage = 1;
 
     public bool isDead = false;
+
+    public GameObject shopManager;
     
     // Start is called before the first frame update
     void Start()
@@ -35,7 +39,7 @@ public class Player : MonoBehaviour
 
         if (health <= 0.0f)
         {
-            isDead = true;
+            KillPlayer();
         }
         else
         {
@@ -73,7 +77,19 @@ public class Player : MonoBehaviour
 
     private void KillPlayer()
     {
-        
+        isDead = true;
+        GameManager.Instance.LooseGame();
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.name == "Coin(Clone)")
+        {
+            shopManager.GetComponent<ShopManager>().coins += 1f;
+            return;
+        }
+        health -= 1.0f;
     }
     
     private static GameObject GetChildNamed(GameObject go, string name) 

@@ -9,12 +9,6 @@ public class GameManager : MonoBehaviour
 {
     public float currentScore = 0.0f;
     
-    private bool celebration25 = true;
-    
-    private bool celebration50 = true;
-    
-    private bool celebration100 = true;
-    
     public GameObject startText;
 
     public GameObject lossText;
@@ -24,9 +18,6 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     
     public GameObject spawner;
-    
-    private static float allTimeHigh = 0.0f;
-    
     
     private bool mGameLost = false;
 
@@ -65,25 +56,7 @@ public class GameManager : MonoBehaviour
 
         if (sGameStarted && !mGameLost)
         {
-            // Increment the score by elapsed time.
             currentScore += Time.deltaTime;
-            // Celebrations on few important values
-            if (currentScore > 25000.0f && celebration25)
-            {
-                FindObjectOfType<AudioManager>().Play("Celeb25");
-                celebration25 = false;
-            }
-            if (currentScore > 50000.0f && celebration50)
-            {
-                FindObjectOfType<AudioManager>().Play("Celeb50");
-                celebration50 = false;
-            }
-            if (currentScore > 100000.0f && celebration100)
-            {
-                FindObjectOfType<AudioManager>().Play("Celeb100");
-                celebration100 = false;
-            }
-            // Update the score text.
             GetChildNamed(scoreText, "Value").GetComponent<Text>().text = $"{(int) (currentScore)}";
         }
     }
@@ -98,7 +71,7 @@ public class GameManager : MonoBehaviour
             lossText.SetActive(false);
         }
         else
-        { // Setup a new game -> Wait for start.
+        { 
             // Don't start spawning until we start.
             
             // Setup the text.
@@ -106,8 +79,6 @@ public class GameManager : MonoBehaviour
             scoreText.SetActive(false);
             lossText.SetActive(false);
         }
-        
-        // Set the state.
         mGameLost = false;
     }
     
@@ -122,6 +93,20 @@ public class GameManager : MonoBehaviour
     {
         // Reload the active scene, triggering reset...
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    public void LooseGame()
+    {
+        // Get the spawner script.
+        //var sp = spawner.GetComponent<Spawner>();
+        // Stop the obstacles.
+        //sp.ModifyObstacleSpeed(0.0f);
+        // Stop spawning.
+        //sp.spawnObstacles = false;
+        // Show the loss text.
+        lossText.SetActive(true);
+        // Loose the game.
+        mGameLost = true;
     }
     
     private static GameObject GetChildNamed(GameObject go, string name) 

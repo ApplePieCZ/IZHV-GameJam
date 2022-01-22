@@ -50,7 +50,7 @@ public class ShopManager : MonoBehaviour
         switch (itemID)
         {
             case 1:
-                player.GetComponent<Player>().speed += 0.5f;
+                player.GetComponent<Player>().speed += 0.25f;
                 ShopItems[2, 1] += 25;
                 break;
             case 2:
@@ -67,6 +67,7 @@ public class ShopManager : MonoBehaviour
     
     void FixedUpdate()
     {
+        coinsTxt.text = coins.ToString(CultureInfo.InvariantCulture);
         if (ShopItems[3, 1] == 15)
         {
             button[0].interactable = false;
