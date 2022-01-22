@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.name is "Enemybullet(Clone)" or "Coin(Clone)" or "Bullet(Clone)") return;
+
         Destroy(gameObject);
     }
 }

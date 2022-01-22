@@ -8,7 +8,6 @@ public class CoinBehavior : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print(other.name);
         if (other.name is "Despawner2" or "Player") Destroy(gameObject);
     }
 }
