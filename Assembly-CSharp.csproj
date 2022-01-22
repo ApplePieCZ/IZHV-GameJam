@@ -57,6 +57,10 @@
      <Compile Include="Assets\Scripts\EnemyPassive.cs" />
      <Compile Include="Assets\Scripts\EnemyPassiveMasterSpawner.cs" />
      <Compile Include="Assets\Scripts\EnemyBullet.cs" />
+     <Compile Include="Assets\Scripts\Homing.cs" />
+     <Compile Include="Assets\Scripts\HomingSpawner.cs" />
+     <Compile Include="Assets\Scripts\BallBehavior.cs" />
+     <Compile Include="Assets\Scripts\ChaosSpawner.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:/Program Files/Unity/Hub/Editor/2021.2.0b15/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
