@@ -45,12 +45,12 @@ public class ShopManager : MonoBehaviour
                 ShopItems[2, 1] += 25;
                 break;
             case 2:
-                player.GetComponent<Player>().shield += 10f;
-                player.GetComponent<Player>().actualShield += 10f;
+                player.GetComponent<Player>().shield += 2f;
+                player.GetComponent<Player>().actualShield += 2f;
                 ShopItems[2, 2] += 50;
                 break;
             case 3:
-                player.GetComponent<Player>().damage += 1;
+                player.GetComponent<Player>().damage += 1f;
                 ShopItems[2, 3] += 100;
                 break;
         }
