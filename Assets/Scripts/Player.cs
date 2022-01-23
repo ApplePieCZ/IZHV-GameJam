@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
 
         if (actualShield <= 0.0f)
         {
+            GetChildNamed(shieldText, "Value").GetComponent<Text>().text = $"{(int) (actualShield)}";
             KillPlayer();
             return;
         }
@@ -101,7 +102,7 @@ public class Player : MonoBehaviour
     {
         if (other.name == "Coin(Clone)")
         {
-            shopManager.GetComponent<ShopManager>().coins += 1f;
+            shopManager.GetComponent<ShopManager>().coinsTotal += 1f;
             return;
         }
         actualShield -= 1.0f;
