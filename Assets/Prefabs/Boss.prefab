@@ -263,7 +263,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -632,7 +632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb28e16c4f7b901498003b96a0f3bd83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
   firePoints:
   - {fileID: 5791403968691655255}
   - {fileID: 8413086405869082791}
@@ -641,5 +640,10 @@ MonoBehaviour:
   dropPoint: {fileID: 6651116429731061679}
   bulletPrefab: {fileID: 4437954539193365823, guid: 5fa3ece109de85d418a7656890d5a65d, type: 3}
   bulletExplodePrefab: {fileID: 5805265016928311800, guid: bf45d131bec83c14dbf1bf1eadfa0741, type: 3}
+  spriteDamaged: {fileID: 21300000, guid: a7e8da0cacb2ee6459f1e52aa6fb8615, type: 3}
+  spriteDamagedMore: {fileID: 21300000, guid: 948f778cc6e2fe949af61cbfe9557f93, type: 3}
+  spriteShield: {fileID: 21300000, guid: bb06dedb5ee79bb4ba10b6bdcbf32c5f, type: 3}
+  spriteNormal: {fileID: 21300000, guid: 25986e78261173d49bbc775ee92a12c8, type: 3}
+  spriteDestroyed: {fileID: 21300000, guid: dd02f8870fec9274ab26b4090fd53cda, type: 3}
   enemyPrefab: {fileID: 4609346551784354006, guid: 3e72bec854df5c44ba45b206fc0e0fa0, type: 3}
   spawner: {fileID: 6651116429731061679}
