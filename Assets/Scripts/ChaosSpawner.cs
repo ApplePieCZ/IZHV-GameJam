@@ -13,7 +13,7 @@ public class ChaosSpawner : MonoBehaviour
     private const float top = 5f;
     private const float bottom = -5f;
     private const float shift = 0.5f;
-    private float spawnTime = 0.08f;
+    private float spawnTime = 0.13f;
     private float elapsedTime = 0.0f;
     void FixedUpdate()
     {
