@@ -24,7 +24,6 @@ public class ShopManager : MonoBehaviour
     {
         coinsTxt.text = coins.ToString(CultureInfo.InvariantCulture);
         ShopItems = ShopItemsKeep;
-        coins = coinsTotal;
         coinsTotal = coins;
     }
 
@@ -37,6 +36,7 @@ public class ShopManager : MonoBehaviour
         if (!(coins >= ShopItems[2, itemID])) return;
         
         coins -= ShopItems[2, itemID];
+        coinsTotal -= ShopItems[2, itemID];
         ShopItems[3, itemID]++;
         coinsTxt.text = coins.ToString(CultureInfo.InvariantCulture);
         buttonReference.GetComponent<ButtonInfo>().lvlText.text = ShopItems[3, itemID].ToString();
