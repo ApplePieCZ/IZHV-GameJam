@@ -9,10 +9,11 @@ using UnityEngine.EventSystems;
 public class ShopManager : MonoBehaviour
 {
     private static readonly int[,] ShopItemsKeep = {{0,0,0,0},{0,1,2,3},{0,25,50,200},{0,1,1,1}};
+    public float coinsTotal;
     
     public int[,] ShopItems = new int[4,4];
     
-    public float coins;
+    private static float coins;
 
     public Text coinsTxt;
 
@@ -23,6 +24,7 @@ public class ShopManager : MonoBehaviour
     {
         coinsTxt.text = coins.ToString(CultureInfo.InvariantCulture);
         ShopItems = ShopItemsKeep;
+        coinsTotal = coins;
     }
 
     public void Buy()
@@ -59,16 +61,17 @@ public class ShopManager : MonoBehaviour
     
     void FixedUpdate()
     {
+        coins = coinsTotal;
         coinsTxt.text = coins.ToString(CultureInfo.InvariantCulture);
-        if (ShopItems[3, 1] == 15)
+        if (ShopItems[3, 1] == 15 || coins < ShopItems[2,1])
         {
             button[0].interactable = false;
         }
-        if (ShopItems[3, 2] == 20)
+        if (ShopItems[3, 2] == 20 || coins < ShopItems[2,2])
         {
             button[1].interactable = false;
         }
-        if (ShopItems[3, 3] == 5)
+        if (ShopItems[3, 3] == 5 || coins < ShopItems[2,3])
         {
             button[2].interactable = false;
         }
