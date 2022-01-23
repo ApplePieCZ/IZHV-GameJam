@@ -8,6 +8,6 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name is "Despawner2" or "Player") Destroy(gameObject);
+        if (other.name is ("Despawner2" or "Player" or "Despawner1" or "Despawner3" or "Despawner4")) Destroy(gameObject);
     }
 }
