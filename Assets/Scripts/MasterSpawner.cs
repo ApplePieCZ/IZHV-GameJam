@@ -18,9 +18,11 @@ public class MasterSpawner : MonoBehaviour
     public GameObject bossSpawner;
 
     private float elapsedTime;
+    private float elapsedWaves;
     private bool chosen;
     private float spawnTime;
-    private bool bossActive;
+    public bool bossActive;
+    public float levelMax = 1f;
 
     private float x;
     void FixedUpdate()
@@ -30,12 +32,12 @@ public class MasterSpawner : MonoBehaviour
             SpawnSwitch();
             return;
         }
-
+        //chosen = true;
+        //elapsedWaves = 7f;
         if (!chosen)
         {
             x = Random.value;
             x = Mathf.Round(x * 10);
-            x = 10;
             chosen = true;
             switch (x)
             {
@@ -83,10 +85,6 @@ public class MasterSpawner : MonoBehaviour
                     homingSpawner.GetComponent<HomingSpawner>().spawn = true;
                     spawnTime = 15f;
                     break;
-                case 10:
-                    bossSpawner.GetComponent<BossSpawner>().SpawnBoss();
-                    bossActive = true;
-                    break;
                 default:
                     spawnTime = 2f;
                     break;
@@ -94,11 +92,18 @@ public class MasterSpawner : MonoBehaviour
             }
         }
         elapsedTime += Time.deltaTime;
-        
         if (!(elapsedTime >= spawnTime) || bossActive) return;
+        elapsedWaves++;
         elapsedTime = 0f;
         chosen = false;
         SpawnSwitch();
+        if (elapsedWaves >= 5f)
+        {
+            elapsedWaves = 0f;
+            bossSpawner.GetComponent<BossSpawner>().SpawnBoss();
+            bossActive = true;
+            chosen = true;
+        }
     }
 
     void SpawnSwitch()
