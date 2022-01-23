@@ -3,10 +3,26 @@
 // Date: 22.01.2022
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
+
+    [SerializeField] Slider volumeSlider;
+    
+    private void Start()
+    {
+        if (!PlayerPrefs.HasKey("masterVolume"))
+        {
+            PlayerPrefs.SetFloat("masterVolume", 1);
+            Load();
+        }
+        else
+        {
+            Load();
+        }
+    }
 
     void Awake()
     {
@@ -26,6 +42,22 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
+    }
+
+    public void ChangeVolume()
+    {
+        AudioListener.volume = volumeSlider.value;
+        Save();
+    }
+
+    private void Load()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("masterVolume");
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("masterVolume", volumeSlider.value);
     }
 
 
