@@ -22,6 +22,7 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player.GetComponent<Player>().isDead) return;
         shootTime += Time.deltaTime;
         if(Input.GetButtonDown("Jump"))
         {

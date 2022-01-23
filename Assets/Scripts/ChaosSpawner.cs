@@ -1,5 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+// Script for spawner of balls
+// Author: Tomas Krsicka
+// Date: 22.01.2022
 using UnityEngine;
 
 public class ChaosSpawner : MonoBehaviour

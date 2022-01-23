@@ -1,9 +1,6 @@
 // Script for player movement and behavior
 // Author: Lukas Marek
 // Date: 22.01.2022
-
-using Unity.VisualScripting;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +20,7 @@ public class Player : MonoBehaviour
 
     public float damage;
 
-    public bool isDead = false;
+    public bool isDead;
 
     public GameObject shopManager;
 

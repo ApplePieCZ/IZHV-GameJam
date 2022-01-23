@@ -1,5 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+// Script for passive enemies
+// Author: Tomas Krsicka
+// Date: 22.01.2022
 using UnityEngine;
 
 public class EnemyPassive : MonoBehaviour

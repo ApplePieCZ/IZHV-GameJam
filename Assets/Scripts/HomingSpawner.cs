@@ -1,5 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+// Script for spawner of homing enemies
+// Author: Lukas Marek
+// Date: 22.01.2022
 using UnityEngine;
 
 public class HomingSpawner : MonoBehaviour

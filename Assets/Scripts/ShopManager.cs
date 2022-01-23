@@ -24,6 +24,7 @@ public class ShopManager : MonoBehaviour
     {
         coinsTxt.text = coins.ToString(CultureInfo.InvariantCulture);
         ShopItems = ShopItemsKeep;
+        coins = coinsTotal;
         coinsTotal = coins;
     }
 

@@ -1,5 +1,5 @@
-  // Script for spawning enemies
- // Author: Lukas Marek
+// Script for spawning enemies
+// Author: Lukas Marek
 // Date: 22.01.2022
 using UnityEngine;
 

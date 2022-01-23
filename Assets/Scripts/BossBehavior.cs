@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
+// Script for boss movement and behavior
+// Author: Lukas Marek
+// Date: 22.01.2022
 using UnityEngine;
 
 public class BossBehavior : MonoBehaviour
