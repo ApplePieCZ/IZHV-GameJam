@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class MasterSpawner : MonoBehaviour
@@ -19,6 +20,7 @@ public class MasterSpawner : MonoBehaviour
     private float elapsedTime;
     private bool chosen;
     private float spawnTime;
+    private bool bossActive;
 
     private float x;
     void FixedUpdate()
@@ -33,6 +35,7 @@ public class MasterSpawner : MonoBehaviour
         {
             x = Random.value;
             x = Mathf.Round(x * 10);
+            x = 10;
             chosen = true;
             switch (x)
             {
@@ -81,6 +84,9 @@ public class MasterSpawner : MonoBehaviour
                     spawnTime = 15f;
                     break;
                 case 10:
+                    bossSpawner.GetComponent<BossSpawner>().SpawnBoss();
+                    bossActive = true;
+                    break;
                 default:
                     spawnTime = 2f;
                     break;
@@ -88,7 +94,8 @@ public class MasterSpawner : MonoBehaviour
             }
         }
         elapsedTime += Time.deltaTime;
-        if (!(elapsedTime >= spawnTime)) return;
+        
+        if (!(elapsedTime >= spawnTime) || bossActive) return;
         elapsedTime = 0f;
         chosen = false;
         SpawnSwitch();

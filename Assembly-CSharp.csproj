@@ -62,6 +62,9 @@
      <Compile Include="Assets\Scripts\BallBehavior.cs" />
      <Compile Include="Assets\Scripts\ChaosSpawner.cs" />
      <Compile Include="Assets\Scripts\MasterSpawner.cs" />
+     <Compile Include="Assets\Scripts\BossBehavior.cs" />
+     <Compile Include="Assets\Scripts\BossSpawner.cs" />
+     <Compile Include="Assets\Scripts\LaserBomb.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:/Program Files/Unity/Hub/Editor/2021.2.0b15/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>

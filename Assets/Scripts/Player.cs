@@ -12,9 +12,7 @@ public class Player : MonoBehaviour
     public float speed;
 
     public Rigidbody2D rb;
-
-    public GameObject bullet;
-
+    
     private Vector2 _movement;
 
     public GameObject shieldText;
