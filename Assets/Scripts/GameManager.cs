@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     
     public GameObject player;
     
-    public GameObject[] spawner;
+    public GameObject spawner;
 
     private bool mGameLost = false;
     
@@ -112,13 +112,11 @@ public class GameManager : MonoBehaviour
 
     private void StopSpawning()
     {
-        spawner[0].GetComponent<Spawner>().spawn = false;
-        spawner[1].GetComponent<EnemyPassiveMasterSpawner>().spawn = false;
+        spawner.GetComponent<MasterSpawner>().spawn = false;
     }
 
     private void StartSpawning()
     {
-        spawner[0].GetComponent<Spawner>().spawn = true;
-        spawner[1].GetComponent<EnemyPassiveMasterSpawner>().spawn = true;
+        spawner.GetComponent<MasterSpawner>().spawn = true;
     }
 }

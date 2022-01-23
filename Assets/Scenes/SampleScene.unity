@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55982cda0181e414d8fa072fd1e8749f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn: 1
+  spawn: 0
   enemyPrefab: {fileID: 4609346551784354006, guid: 3e72bec854df5c44ba45b206fc0e0fa0, type: 3}
   spawner:
   - {fileID: 136670852}
@@ -1274,9 +1274,7 @@ MonoBehaviour:
   lossText: {fileID: 244333545}
   scoreText: {fileID: 151536158}
   player: {fileID: 462254671}
-  spawner:
-  - {fileID: 473118182}
-  - {fileID: 1848540547}
+  spawner: {fileID: 512456089}
 --- !u!4 &240534664
 Transform:
   m_ObjectHideFlags: 0
@@ -1573,7 +1571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 489b472266e7e1845938f027bc724853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn: 1
+  spawn: 0
   _transform: {fileID: 300573622}
   ballPrefab: {fileID: 1663877538537637438, guid: dda0f7dd146c22a46a9f49d757dec581, type: 3}
 --- !u!1 &325695246
@@ -2303,6 +2301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 512456090}
+  - component: {fileID: 512456091}
   m_Layer: 0
   m_Name: MasterSpawner
   m_TagString: Untagged
@@ -2329,6 +2328,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &512456091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512456089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72098c7a14b05f4e9503201341d1698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawn: 0
+  homingSpawner: {fileID: 72074531}
+  diagonalSpawner: {fileID: 473118182}
+  passiveSpawner: {fileID: 1848540547}
+  chaosSpawner: {fileID: 300573621}
+  bossSpawner: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4651,8 +4668,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2556.76, y: -44.36}
-  m_SizeDelta: {x: 1595.34, y: 1319.53}
+  m_AnchoredPosition: {x: 2556.76, y: -255.99}
+  m_SizeDelta: {x: 1595.34, y: 1742.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795923737
 MonoBehaviour:
@@ -4693,7 +4710,31 @@ MonoBehaviour:
 
     -boss
 
-    -shooters'
+    -shooters
+
+
+    1 diagonal 10
+
+    2
+    diagonal 20 + random
+
+    3 random + homing
+
+    4 diagonal 15 + homing 10
+
+    5
+    diagonal 40 + random
+
+    6 diagonl 30 + random + homing
+
+    7 chaos
+
+    8
+    chaos + random
+
+    9 chaos + homing
+
+    10 Boss'
 --- !u!222 &1795923738
 CanvasRenderer:
   m_ObjectHideFlags: 0

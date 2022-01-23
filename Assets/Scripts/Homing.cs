@@ -5,11 +5,7 @@ using UnityEngine;
 
 public class Homing : MonoBehaviour
 {
-    public float speed = 5f;
-
-    public Rigidbody2D rigidBody;
-
-    public Vector2 movement;
+    private float speed = 3f;
 
     public GameObject coinPrefab;
 
@@ -27,9 +23,9 @@ public class Homing : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.name is not "Bullet(Clone)" or "Despawner2") return;
+        if (other.name is not ("Bullet(Clone)" or "Despawner2" or "Player")) return;
         Destroy(gameObject);
         Instantiate(coinPrefab, dropPoint.position, dropPoint.rotation);
     }
