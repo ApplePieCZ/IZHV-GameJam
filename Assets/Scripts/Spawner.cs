@@ -13,17 +13,22 @@ public class Spawner : MonoBehaviour
 
     public float spawnTime = 1.0f;
 
-    private float elapsedTime = 0.0f;
+    private float elapsedTime;
     void FixedUpdate()
     {
         if (!spawn) return;
         elapsedTime += Time.deltaTime;
         if (!(elapsedTime >= spawnTime)) return;
-
-        var enemyL = Instantiate(enemyPrefab, spawner[0].position, spawner[0].rotation);
-        enemyL.GetComponent<EnemyBehavior>().movement = new Vector2(1f, -0.1f);
+        var pos = spawner[0].position;
+        pos.z = 0;
         
-        var enemyR = Instantiate(enemyPrefab, spawner[1].position, spawner[1].rotation);
+        var enemyL = Instantiate(enemyPrefab, pos, spawner[0].rotation);
+        enemyL.GetComponent<EnemyBehavior>().movement = new Vector2(1f, -0.1f);
+
+        pos = spawner[1].position;
+        pos.z = 0;
+        
+        var enemyR = Instantiate(enemyPrefab, pos, spawner[1].rotation);
         enemyR.GetComponent<EnemyBehavior>().movement = new Vector2(-1f, -0.1f);
 
         elapsedTime = 0f;

@@ -13,7 +13,7 @@ public class HomingSpawner : MonoBehaviour
 
     public float spawnTime = 5.0f;
 
-    public float elapsedTime;
+    private float elapsedTime;
 
     
     void FixedUpdate()

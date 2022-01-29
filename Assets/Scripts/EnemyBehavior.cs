@@ -1,6 +1,8 @@
 // Script for enemy movement and collision
 // Author: Lukas Marek
 // Date: 22.01.2022
+
+using System;
 using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
@@ -15,6 +17,7 @@ public class EnemyBehavior : MonoBehaviour
     public GameObject coinPrefab;
 
     public Transform dropPoint;
+    
     void FixedUpdate()
     {
         if (rigidBody.position.x > -8.4f && rigidBody.position.x < 4.2f) _spawn = false;

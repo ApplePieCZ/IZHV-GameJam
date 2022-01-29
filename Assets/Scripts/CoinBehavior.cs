@@ -16,7 +16,7 @@ public class CoinBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        var distance = target.position - this.transform.position;
+        var distance = target.position - transform.position;
         if (distance.magnitude > 2f) return;
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }

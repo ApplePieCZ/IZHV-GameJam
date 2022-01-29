@@ -64,7 +64,7 @@ public class BossBehavior : MonoBehaviour
         if (!inPosition)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            if (transform.position == target.position) inPosition = true;
+            if (transform.position.y == target.position.y) inPosition = true;
             _spriteRenderer = gameObject.transform.GetComponent<SpriteRenderer>();
             _spriteRenderer.sprite = spriteShield;
             return;
@@ -126,7 +126,7 @@ public class BossBehavior : MonoBehaviour
     {
         if (other.name == "Despawner2") Destroy(gameObject);
         if (other.name is not ("Bullet(Clone)" or "Player")) return;
-        if (transform.position != target.position) return;
+        if (transform.position.y != target.position.y) return;
         if (bossDead) return;
         health -= 1f;
         if (health <= healthMax / 100 * 20)

@@ -66,7 +66,6 @@ public class GameManager : MonoBehaviour
         if (sGameStarted)
         { // Setup already started game -> Retry.
             startText.SetActive(false);
-            scoreText.SetActive(true);
             lossText.SetActive(false);
             
             StartSpawning();
@@ -77,7 +76,6 @@ public class GameManager : MonoBehaviour
             StopSpawning();
             // Setup the text.
             startText.SetActive(true);
-            scoreText.SetActive(false);
             lossText.SetActive(false);
         }
         mGameLost = false;

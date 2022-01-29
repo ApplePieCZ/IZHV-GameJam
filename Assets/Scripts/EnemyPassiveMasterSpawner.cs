@@ -36,7 +36,10 @@ public class EnemyPassiveMasterSpawner : MonoBehaviour
             numberOfShips = 0;
             return;
         }
-        var enemyL = Instantiate(enemyPrefab, spawner[spawnerIndex].position, spawner[spawnerIndex].rotation);
+
+        var pos = spawner[spawnerIndex].position;
+        pos.z = 0;
+        var enemyL = Instantiate(enemyPrefab, pos, spawner[spawnerIndex].rotation);
         enemyL.GetComponent<EnemyPassive>().movement = new Vector2(direction[0], direction[1]);
 
     }
